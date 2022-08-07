@@ -10,17 +10,18 @@ source:
   sha256: 519aae61c790400ac82b160cd779b6bb68e7af8bb099bc91bbf970e22731fe2b
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  skip: True  # [py<37]
 
 requirements:
   host:
-    - python >=3.7
+    - python
     - pip
     - setuptools
+    - wheel
   run:
-    - python >=3.7
+    - python
 
 test:
   imports:
